@@ -1,0 +1,57 @@
+1.
+select * from employee
+
+SELECT empname,salary 
+from employee 
+where salary>=200000 and salary<=300000
+
+select empname,salary
+from employee
+where salary Between 200000 and 300000
+
+1.1
+select *from employee
+
+select a1.empid,a1.empname,a1.city
+from employee a1,employee a2
+where a1.city=a2.city and a1.empid !=a2.empid
+
+1.2
+select * from employee
+
+select * from employee
+where empid is null
+
+
+2
+select * from employee
+
+select 
+empid,empname,sum(salary) over(order by empid) as cummulativeSUM
+from employee
+
+2.1
+select * from employee
+
+select
+(COUNT(*) filter (where gender='M')*100.0/COUNT(*))as malecount, 
+(COUNT(*) filter (where gender='F')*100.0/COUNT(*))as femalecount 
+from employee
+
+2.2
+select * from employee
+
+select * 
+from employee 
+where empid<=(SELECT COUNT(empid)/2 from employee)
+
+
+3
+select * from employee
+
+SELECT Salary,
+CONCAT(SUBSTRING(Salary::text, 1, LENGTH(Salary::text)-2), 'XX') as masked_number
+FROM Employee
+
+3.1
+select * from employee
